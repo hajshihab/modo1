@@ -1,0 +1,161 @@
+{
+  "hosting": [
+    {
+      "target": "frontend",
+      "public": "frontend/out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "destination": "https://your-backend.railway.app/api/**"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(js|css)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(jpg|jpeg|gif|png|svg|webp)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=31536000"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target": "pos",
+      "public": "pos-system/out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "destination": "https://your-backend.railway.app/api/**"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "kds",
+      "public": "kds-system/out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "destination": "https://your-backend.railway.app/api/**"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "driver",
+      "public": "driver-app/out",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "/api/**",
+          "destination": "https://your-backend.railway.app/api/**"
+        },
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ],
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "source": "backend/functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ],
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  },
+  "targets": {
+    "ecommerce-platform": {
+      "hosting": {
+        "frontend": [
+          "ecommerce-frontend"
+        ],
+        "pos": [
+          "ecommerce-pos"
+        ],
+        "kds": [
+          "ecommerce-kds"
+        ],
+        "driver": [
+          "ecommerce-driver"
+        ]
+      }
+    }
+  }
+}

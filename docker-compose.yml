@@ -1,0 +1,177 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: ecommerce-postgres
+    environment:
+      POSTGRES_DB: ecommerce
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./config/database-schema.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - ecommerce-network
+    restart: unless-stopped
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: ecommerce-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ecommerce-network
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ecommerce-backend
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/ecommerce
+      REDIS_URL: redis://redis:6379
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - ecommerce-network
+    restart: unless-stopped
+    command: npm run dev
+
+  # Frontend Website
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ecommerce-frontend
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    networks:
+      - ecommerce-network
+    restart: unless-stopped
+    command: npm run dev
+
+  # POS System
+  pos-system:
+    build:
+      context: ./pos-system
+      dockerfile: Dockerfile
+    container_name: ecommerce-pos
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./pos-system:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    networks:
+      - ecommerce-network
+    restart: unless-stopped
+    command: npm run dev
+
+  # KDS System
+  kds-system:
+    build:
+      context: ./kds-system
+      dockerfile: Dockerfile
+    container_name: ecommerce-kds
+    environment:
+      NODE_ENV: development
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+    ports:
+      - "3003:3003"
+    volumes:
+      - ./kds-system:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    networks:
+      - ecommerce-network
+    restart: unless-stopped
+    command: npm run dev
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: ecommerce-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+      - pos-system
+      - kds-system
+    networks:
+      - ecommerce-network
+    restart: unless-stopped
+
+  # Adminer (Database Management)
+  adminer:
+    image: adminer:latest
+    container_name: ecommerce-adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - ecommerce-network
+    restart: unless-stopped
+
+  # Redis Commander (Redis Management)
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: ecommerce-redis-commander
+    environment:
+      REDIS_HOSTS: local:redis:6379
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+    networks:
+      - ecommerce-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  ecommerce-network:
+    driver: bridge

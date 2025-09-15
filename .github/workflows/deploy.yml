@@ -1,0 +1,149 @@
+name: Deploy E-Commerce Platform
+
+on:
+  push:
+    branches: [ main, production ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        npm ci
+        cd frontend && npm ci
+        cd ../backend && npm ci
+        cd ../pos-system && npm ci
+        cd ../kds-system && npm ci
+        cd ../driver-app && npm ci
+        
+    - name: Run tests
+      run: |
+        npm run test:all
+        
+    - name: Build projects
+      run: |
+        cd frontend && npm run build
+        cd ../backend && npm run build
+        cd ../pos-system && npm run build
+        cd ../kds-system && npm run build
+        cd ../driver-app && npm run build
+
+  deploy-frontend:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install Vercel CLI
+      run: npm install -g vercel
+      
+    - name: Deploy Frontend to Vercel
+      run: |
+        cd frontend
+        vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
+      env:
+        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        
+    - name: Deploy POS System
+      run: |
+        cd pos-system
+        vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
+      env:
+        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_POS_PROJECT_ID }}
+        
+    - name: Deploy KDS System
+      run: |
+        cd kds-system
+        vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
+      env:
+        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_KDS_PROJECT_ID }}
+        
+    - name: Deploy Driver App
+      run: |
+        cd driver-app
+        vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
+      env:
+        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        VERCEL_PROJECT_ID: ${{ secrets.VERCEL_DRIVER_PROJECT_ID }}
+
+  deploy-backend:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install Railway CLI
+      run: npm install -g @railway/cli
+      
+    - name: Deploy Backend to Railway
+      run: |
+        cd backend
+        railway up --service backend
+      env:
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+
+  deploy-database:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup PostgreSQL Client
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y postgresql-client
+        
+    - name: Run Database Migrations
+      run: |
+        psql ${{ secrets.DATABASE_URL }} -f config/database-schema.sql
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+  notify:
+    needs: [deploy-frontend, deploy-backend, deploy-database]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Notify Deployment Status
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        channel: '#deployments'
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+      if: always()

@@ -1,0 +1,595 @@
+{
+  "products": [
+    {
+      "id": "prod_001",
+      "name": "هاتف ذكي سامسونج جالاكسي S24",
+      "nameEn": "Samsung Galaxy S24 Smartphone",
+      "description": "هاتف ذكي متطور بكاميرا عالية الدقة وشاشة AMOLED مقاس 6.2 بوصة",
+      "descriptionEn": "Advanced smartphone with high-resolution camera and 6.2-inch AMOLED display",
+      "price": 2999,
+      "currency": "SAR",
+      "originalPrice": 3299,
+      "category": "electronics",
+      "subcategory": "smartphones",
+      "brand": "Samsung",
+      "sku": "SAM-S24-128-BLK",
+      "barcode": "8801643718045",
+      "images": [
+        "/images/products/samsung-s24-1.jpg",
+        "/images/products/samsung-s24-2.jpg",
+        "/images/products/samsung-s24-3.jpg"
+      ],
+      "specifications": {
+        "screen": "6.2 بوصة Dynamic AMOLED",
+        "processor": "Snapdragon 8 Gen 3",
+        "ram": "8 جيجابايت",
+        "storage": "128 جيجابايت",
+        "camera": "50 ميجابكسل",
+        "battery": "4000 مللي أمبير",
+        "os": "Android 14"
+      },
+      "inventory": {
+        "quantity": 25,
+        "lowStockThreshold": 5,
+        "trackQuantity": true,
+        "allowBackorder": false
+      },
+      "storeId": "store_tech_001",
+      "storeName": "متجر التقنية الحديثة",
+      "merchantId": "merchant_001",
+      "isActive": true,
+      "isFeatured": true,
+      "rating": 4.8,
+      "reviewCount": 156,
+      "tags": ["هاتف", "سامسونج", "ذكي", "جالاكسي"],
+      "weight": 0.168,
+      "dimensions": {
+        "length": 14.7,
+        "width": 7.06,
+        "height": 0.79,
+        "unit": "cm"
+      },
+      "createdAt": "2024-01-15T10:30:00Z",
+      "updatedAt": "2024-01-30T14:20:00Z"
+    },
+    {
+      "id": "prod_002",
+      "name": "لابتوب ديل XPS 13",
+      "nameEn": "Dell XPS 13 Laptop",
+      "description": "لابتوب عالي الأداء مع معالج Intel Core i7 وشاشة 4K",
+      "descriptionEn": "High-performance laptop with Intel Core i7 processor and 4K display",
+      "price": 4599,
+      "currency": "SAR",
+      "originalPrice": 4999,
+      "category": "electronics",
+      "subcategory": "laptops",
+      "brand": "Dell",
+      "sku": "DELL-XPS13-I7-512",
+      "barcode": "884116332640",
+      "images": [
+        "/images/products/dell-xps13-1.jpg",
+        "/images/products/dell-xps13-2.jpg"
+      ],
+      "specifications": {
+        "screen": "13.4 بوصة 4K UHD+",
+        "processor": "Intel Core i7-1360P",
+        "ram": "16 جيجابايت LPDDR5",
+        "storage": "512 جيجابايت SSD",
+        "graphics": "Intel Iris Xe",
+        "battery": "حتى 12 ساعة",
+        "os": "Windows 11 Home"
+      },
+      "inventory": {
+        "quantity": 12,
+        "lowStockThreshold": 3,
+        "trackQuantity": true,
+        "allowBackorder": true
+      },
+      "storeId": "store_comp_001",
+      "storeName": "متجر الكمبيوتر المتقدم",
+      "merchantId": "merchant_002",
+      "isActive": true,
+      "isFeatured": true,
+      "rating": 4.9,
+      "reviewCount": 89,
+      "tags": ["لابتوب", "ديل", "كمبيوتر", "محمول"],
+      "weight": 1.2,
+      "dimensions": {
+        "length": 29.6,
+        "width": 19.9,
+        "height": 1.47,
+        "unit": "cm"
+      },
+      "createdAt": "2024-01-18T09:15:00Z",
+      "updatedAt": "2024-01-29T16:45:00Z"
+    },
+    {
+      "id": "prod_003",
+      "name": "ساعة ذكية أبل واتش سيريز 9",
+      "nameEn": "Apple Watch Series 9",
+      "description": "ساعة ذكية متطورة مع مراقبة الصحة وGPS",
+      "descriptionEn": "Advanced smartwatch with health monitoring and GPS",
+      "price": 1899,
+      "currency": "SAR",
+      "originalPrice": 2099,
+      "category": "electronics",
+      "subcategory": "wearables",
+      "brand": "Apple",
+      "sku": "APL-AW9-45-SIL",
+      "barcode": "194253407607",
+      "images": [
+        "/images/products/apple-watch-s9-1.jpg",
+        "/images/products/apple-watch-s9-2.jpg",
+        "/images/products/apple-watch-s9-3.jpg"
+      ],
+      "specifications": {
+        "screen": "45 مم Retina LTPO OLED",
+        "processor": "S9 SiP",
+        "storage": "64 جيجابايت",
+        "connectivity": "GPS + Cellular",
+        "sensors": "مراقب نبضات، أكسجين الدم، ECG",
+        "battery": "حتى 18 ساعة",
+        "waterproof": "مقاوم للماء حتى 50 متر"
+      },
+      "inventory": {
+        "quantity": 0,
+        "lowStockThreshold": 5,
+        "trackQuantity": true,
+        "allowBackorder": true
+      },
+      "storeId": "store_acc_001",
+      "storeName": "متجر الإكسسوارات الذكية",
+      "merchantId": "merchant_003",
+      "isActive": false,
+      "isFeatured": false,
+      "rating": 4.7,
+      "reviewCount": 234,
+      "tags": ["ساعة", "أبل", "ذكية", "صحة"],
+      "weight": 0.038,
+      "dimensions": {
+        "length": 4.5,
+        "width": 3.8,
+        "height": 1.05,
+        "unit": "cm"
+      },
+      "createdAt": "2024-01-20T11:00:00Z",
+      "updatedAt": "2024-01-30T08:30:00Z"
+    },
+    {
+      "id": "prod_004",
+      "name": "قميص قطني رجالي كلاسيكي",
+      "nameEn": "Classic Men's Cotton Shirt",
+      "description": "قميص رجالي أنيق من القطن الخالص، مناسب للمناسبات الرسمية",
+      "descriptionEn": "Elegant men's shirt made from pure cotton, suitable for formal occasions",
+      "price": 149,
+      "currency": "SAR",
+      "originalPrice": 199,
+      "category": "fashion",
+      "subcategory": "men-shirts",
+      "brand": "Classic Wear",
+      "sku": "CW-MS-001-L-WHT",
+      "barcode": "1234567890123",
+      "images": [
+        "/images/products/mens-shirt-1.jpg",
+        "/images/products/mens-shirt-2.jpg"
+      ],
+      "specifications": {
+        "material": "قطن 100%",
+        "size": "Large",
+        "color": "أبيض",
+        "collar": "كلاسيكي",
+        "sleeves": "أكمام طويلة",
+        "care": "غسيل آلة 30 درجة"
+      },
+      "variants": [
+        {
+          "id": "var_001",
+          "size": "Medium",
+          "color": "أبيض",
+          "sku": "CW-MS-001-M-WHT",
+          "price": 149,
+          "quantity": 15
+        },
+        {
+          "id": "var_002",
+          "size": "Large",
+          "color": "أزرق",
+          "sku": "CW-MS-001-L-BLU",
+          "price": 149,
+          "quantity": 20
+        },
+        {
+          "id": "var_003",
+          "size": "XL",
+          "color": "أبيض",
+          "sku": "CW-MS-001-XL-WHT",
+          "price": 159,
+          "quantity": 8
+        }
+      ],
+      "inventory": {
+        "quantity": 43,
+        "lowStockThreshold": 10,
+        "trackQuantity": true,
+        "allowBackorder": false
+      },
+      "storeId": "store_fashion_001",
+      "storeName": "متجر الأزياء العصرية",
+      "merchantId": "merchant_004",
+      "isActive": true,
+      "isFeatured": false,
+      "rating": 4.5,
+      "reviewCount": 67,
+      "tags": ["قميص", "رجالي", "قطن", "كلاسيكي"],
+      "weight": 0.25,
+      "dimensions": {
+        "length": 30,
+        "width": 25,
+        "height": 2,
+        "unit": "cm"
+      },
+      "createdAt": "2024-01-22T13:45:00Z",
+      "updatedAt": "2024-01-28T10:15:00Z"
+    },
+    {
+      "id": "prod_005",
+      "name": "كتاب تعلم البرمجة بالعربية",
+      "nameEn": "Learn Programming in Arabic Book",
+      "description": "كتاب شامل لتعلم البرمجة باللغة العربية للمبتدئين",
+      "descriptionEn": "Comprehensive book for learning programming in Arabic for beginners",
+      "price": 89,
+      "currency": "SAR",
+      "originalPrice": 99,
+      "category": "books",
+      "subcategory": "programming",
+      "brand": "دار النشر التقني",
+      "sku": "BOOK-PROG-AR-001",
+      "barcode": "9789876543210",
+      "images": [
+        "/images/products/programming-book-1.jpg",
+        "/images/products/programming-book-2.jpg"
+      ],
+      "specifications": {
+        "author": "د. أحمد محمد",
+        "publisher": "دار النشر التقني",
+        "pages": "450 صفحة",
+        "language": "العربية",
+        "isbn": "978-9876543210",
+        "edition": "الطبعة الثانية",
+        "year": "2024"
+      },
+      "inventory": {
+        "quantity": 75,
+        "lowStockThreshold": 15,
+        "trackQuantity": true,
+        "allowBackorder": true
+      },
+      "storeId": "store_books_001",
+      "storeName": "مكتبة المعرفة",
+      "merchantId": "merchant_005",
+      "isActive": true,
+      "isFeatured": true,
+      "rating": 4.9,
+      "reviewCount": 123,
+      "tags": ["كتاب", "برمجة", "تعليم", "عربي"],
+      "weight": 0.6,
+      "dimensions": {
+        "length": 24,
+        "width": 17,
+        "height": 3,
+        "unit": "cm"
+      },
+      "createdAt": "2024-01-25T15:20:00Z",
+      "updatedAt": "2024-01-30T12:00:00Z"
+    },
+    {
+      "id": "prod_006",
+      "name": "كرة قدم جلدية احترافية",
+      "nameEn": "Professional Leather Football",
+      "description": "كرة قدم جلدية عالية الجودة مناسبة للمباريات الاحترافية",
+      "descriptionEn": "High-quality leather football suitable for professional matches",
+      "price": 299,
+      "currency": "SAR",
+      "originalPrice": 349,
+      "category": "sports",
+      "subcategory": "football",
+      "brand": "Pro Sports",
+      "sku": "PS-FB-LEA-001",
+      "barcode": "5432167890123",
+      "images": [
+        "/images/products/football-1.jpg",
+        "/images/products/football-2.jpg"
+      ],
+      "specifications": {
+        "material": "جلد طبيعي",
+        "size": "مقاس 5 (رسمي)",
+        "weight": "410-450 جرام",
+        "circumference": "68-70 سم",
+        "panels": "32 قطعة",
+        "certification": "FIFA Approved"
+      },
+      "inventory": {
+        "quantity": 35,
+        "lowStockThreshold": 8,
+        "trackQuantity": true,
+        "allowBackorder": false
+      },
+      "storeId": "store_sports_001",
+      "storeName": "متجر الرياضة المتقدم",
+      "merchantId": "merchant_006",
+      "isActive": true,
+      "isFeatured": false,
+      "rating": 4.6,
+      "reviewCount": 45,
+      "tags": ["كرة", "قدم", "رياضة", "جلد"],
+      "weight": 0.45,
+      "dimensions": {
+        "length": 22,
+        "width": 22,
+        "height": 22,
+        "unit": "cm"
+      },
+      "createdAt": "2024-01-27T09:30:00Z",
+      "updatedAt": "2024-01-30T14:45:00Z"
+    },
+    {
+      "id": "prod_007",
+      "name": "طقم أواني طبخ ستانلس ستيل",
+      "nameEn": "Stainless Steel Cookware Set",
+      "description": "طقم أواني طبخ من الستانلس ستيل عالي الجودة، 12 قطعة",
+      "descriptionEn": "High-quality stainless steel cookware set, 12 pieces",
+      "price": 899,
+      "currency": "SAR",
+      "originalPrice": 1199,
+      "category": "home",
+      "subcategory": "kitchen",
+      "brand": "Kitchen Pro",
+      "sku": "KP-SS-SET-12",
+      "barcode": "7890123456789",
+      "images": [
+        "/images/products/cookware-set-1.jpg",
+        "/images/products/cookware-set-2.jpg",
+        "/images/products/cookware-set-3.jpg"
+      ],
+      "specifications": {
+        "material": "ستانلس ستيل 18/10",
+        "pieces": "12 قطعة",
+        "includes": "مقالي، أواني، أغطية",
+        "dishwasher": "آمن للغسالة",
+        "induction": "متوافق مع الحث المغناطيسي",
+        "warranty": "ضمان 5 سنوات"
+      },
+      "inventory": {
+        "quantity": 18,
+        "lowStockThreshold": 5,
+        "trackQuantity": true,
+        "allowBackorder": true
+      },
+      "storeId": "store_home_001",
+      "storeName": "متجر المنزل الذكي",
+      "merchantId": "merchant_007",
+      "isActive": true,
+      "isFeatured": true,
+      "rating": 4.8,
+      "reviewCount": 92,
+      "tags": ["أواني", "طبخ", "مطبخ", "ستانلس"],
+      "weight": 8.5,
+      "dimensions": {
+        "length": 45,
+        "width": 35,
+        "height": 25,
+        "unit": "cm"
+      },
+      "createdAt": "2024-01-28T11:15:00Z",
+      "updatedAt": "2024-01-30T16:30:00Z"
+    },
+    {
+      "id": "prod_008",
+      "name": "عطر رجالي فاخر",
+      "nameEn": "Luxury Men's Perfume",
+      "description": "عطر رجالي فاخر برائحة خشبية مميزة، 100 مل",
+      "descriptionEn": "Luxury men's perfume with distinctive woody scent, 100ml",
+      "price": 459,
+      "currency": "SAR",
+      "originalPrice": 599,
+      "category": "beauty",
+      "subcategory": "perfumes",
+      "brand": "Luxury Scents",
+      "sku": "LS-MP-WD-100",
+      "barcode": "9876543210987",
+      "images": [
+        "/images/products/mens-perfume-1.jpg",
+        "/images/products/mens-perfume-2.jpg"
+      ],
+      "specifications": {
+        "volume": "100 مل",
+        "type": "Eau de Parfum",
+        "scent": "خشبي - شرقي",
+        "longevity": "8-10 ساعات",
+        "sillage": "متوسط إلى قوي",
+        "season": "جميع الفصول"
+      },
+      "inventory": {
+        "quantity": 28,
+        "lowStockThreshold": 6,
+        "trackQuantity": true,
+        "allowBackorder": false
+      },
+      "storeId": "store_beauty_001",
+      "storeName": "متجر الجمال والعناية",
+      "merchantId": "merchant_008",
+      "isActive": true,
+      "isFeatured": false,
+      "rating": 4.4,
+      "reviewCount": 78,
+      "tags": ["عطر", "رجالي", "فاخر", "خشبي"],
+      "weight": 0.35,
+      "dimensions": {
+        "length": 12,
+        "width": 8,
+        "height": 15,
+        "unit": "cm"
+      },
+      "createdAt": "2024-01-29T14:00:00Z",
+      "updatedAt": "2024-01-30T17:15:00Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "electronics",
+      "name": "إلكترونيات",
+      "nameEn": "Electronics",
+      "icon": "📱",
+      "subcategories": [
+        {"id": "smartphones", "name": "هواتف ذكية", "nameEn": "Smartphones"},
+        {"id": "laptops", "name": "أجهزة كمبيوتر محمولة", "nameEn": "Laptops"},
+        {"id": "wearables", "name": "أجهزة قابلة للارتداء", "nameEn": "Wearables"}
+      ]
+    },
+    {
+      "id": "fashion",
+      "name": "أزياء",
+      "nameEn": "Fashion",
+      "icon": "👗",
+      "subcategories": [
+        {"id": "men-shirts", "name": "قمصان رجالية", "nameEn": "Men's Shirts"},
+        {"id": "women-dresses", "name": "فساتين نسائية", "nameEn": "Women's Dresses"},
+        {"id": "accessories", "name": "إكسسوارات", "nameEn": "Accessories"}
+      ]
+    },
+    {
+      "id": "books",
+      "name": "كتب",
+      "nameEn": "Books",
+      "icon": "📚",
+      "subcategories": [
+        {"id": "programming", "name": "برمجة", "nameEn": "Programming"},
+        {"id": "literature", "name": "أدب", "nameEn": "Literature"},
+        {"id": "science", "name": "علوم", "nameEn": "Science"}
+      ]
+    },
+    {
+      "id": "sports",
+      "name": "رياضة",
+      "nameEn": "Sports",
+      "icon": "⚽",
+      "subcategories": [
+        {"id": "football", "name": "كرة قدم", "nameEn": "Football"},
+        {"id": "fitness", "name": "لياقة بدنية", "nameEn": "Fitness"},
+        {"id": "outdoor", "name": "أنشطة خارجية", "nameEn": "Outdoor"}
+      ]
+    },
+    {
+      "id": "home",
+      "name": "منزل وحديقة",
+      "nameEn": "Home & Garden",
+      "icon": "🏠",
+      "subcategories": [
+        {"id": "kitchen", "name": "مطبخ", "nameEn": "Kitchen"},
+        {"id": "furniture", "name": "أثاث", "nameEn": "Furniture"},
+        {"id": "garden", "name": "حديقة", "nameEn": "Garden"}
+      ]
+    },
+    {
+      "id": "beauty",
+      "name": "جمال وعناية",
+      "nameEn": "Beauty & Care",
+      "icon": "💄",
+      "subcategories": [
+        {"id": "perfumes", "name": "عطور", "nameEn": "Perfumes"},
+        {"id": "skincare", "name": "العناية بالبشرة", "nameEn": "Skincare"},
+        {"id": "makeup", "name": "مكياج", "nameEn": "Makeup"}
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": "store_tech_001",
+      "name": "متجر التقنية الحديثة",
+      "nameEn": "Modern Tech Store",
+      "merchantId": "merchant_001",
+      "category": "electronics",
+      "rating": 4.8,
+      "reviewCount": 1250,
+      "isActive": true,
+      "isVerified": true
+    },
+    {
+      "id": "store_comp_001",
+      "name": "متجر الكمبيوتر المتقدم",
+      "nameEn": "Advanced Computer Store",
+      "merchantId": "merchant_002",
+      "category": "electronics",
+      "rating": 4.9,
+      "reviewCount": 890,
+      "isActive": true,
+      "isVerified": true
+    },
+    {
+      "id": "store_acc_001",
+      "name": "متجر الإكسسوارات الذكية",
+      "nameEn": "Smart Accessories Store",
+      "merchantId": "merchant_003",
+      "category": "electronics",
+      "rating": 4.7,
+      "reviewCount": 567,
+      "isActive": true,
+      "isVerified": true
+    },
+    {
+      "id": "store_fashion_001",
+      "name": "متجر الأزياء العصرية",
+      "nameEn": "Modern Fashion Store",
+      "merchantId": "merchant_004",
+      "category": "fashion",
+      "rating": 4.5,
+      "reviewCount": 432,
+      "isActive": true,
+      "isVerified": true
+    },
+    {
+      "id": "store_books_001",
+      "name": "مكتبة المعرفة",
+      "nameEn": "Knowledge Library",
+      "merchantId": "merchant_005",
+      "category": "books",
+      "rating": 4.9,
+      "reviewCount": 678,
+      "isActive": true,
+      "isVerified": true
+    },
+    {
+      "id": "store_sports_001",
+      "name": "متجر الرياضة المتقدم",
+      "nameEn": "Advanced Sports Store",
+      "merchantId": "merchant_006",
+      "category": "sports",
+      "rating": 4.6,
+      "reviewCount": 345,
+      "isActive": true,
+      "isVerified": true
+    },
+    {
+      "id": "store_home_001",
+      "name": "متجر المنزل الذكي",
+      "nameEn": "Smart Home Store",
+      "merchantId": "merchant_007",
+      "category": "home",
+      "rating": 4.8,
+      "reviewCount": 789,
+      "isActive": true,
+      "isVerified": true
+    },
+    {
+      "id": "store_beauty_001",
+      "name": "متجر الجمال والعناية",
+      "nameEn": "Beauty & Care Store",
+      "merchantId": "merchant_008",
+      "category": "beauty",
+      "rating": 4.4,
+      "reviewCount": 234,
+      "isActive": true,
+      "isVerified": true
+    }
+  ]
+}

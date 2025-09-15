@@ -1,0 +1,33 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "cd backend && npm start",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+  },
+  "environments": {
+    "production": {
+      "variables": {
+        "NODE_ENV": "production",
+        "PORT": "$PORT"
+      }
+    }
+  },
+  "regions": ["us-west1", "eu-west1"],
+  "services": [
+    {
+      "name": "ecommerce-backend",
+      "source": {
+        "repo": "your-repo/ecommerce-platform",
+        "branch": "main"
+      },
+      "variables": {
+        "DATABASE_URL": "$DATABASE_URL",
+        "JWT_SECRET": "$JWT_SECRET",
+        "FIREBASE_PROJECT_ID": "$FIREBASE_PROJECT_ID"
+      }
+    }
+  ]
+}

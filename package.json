@@ -1,0 +1,45 @@
+{
+  "name": "ecommerce-platform",
+  "version": "1.0.0",
+  "description": "Multi-vendor e-commerce platform with Arabic support",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "pos-system",
+    "kds-system",
+    "driver-app"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:pos": "cd pos-system && npm run dev",
+    "dev:kds": "cd kds-system && npm run dev",
+    "dev:driver": "cd driver-app && npm run dev",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "install:all": "npm install && npm run install:frontend && npm run install:backend && npm run install:pos && npm run install:kds && npm run install:driver",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:pos": "cd pos-system && npm install",
+    "install:kds": "cd kds-system && npm install",
+    "install:driver": "cd driver-app && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "ecommerce",
+    "marketplace",
+    "arabic",
+    "rtl",
+    "firebase",
+    "supabase",
+    "nextjs",
+    "react-native"
+  ],
+  "author": "E-Commerce Platform Team",
+  "license": "MIT"
+}
